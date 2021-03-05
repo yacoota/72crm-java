@@ -104,7 +104,8 @@ public class JfinalConfig extends JFinalConfig {
         arp.getEngine().addDirective("fori", CrmDirective.class,true);
         me.add(arp);
         //扫描sql模板
-        getSqlTemplate(PathKit.getRootClassPath() + "/template", arp);
+        // getSqlTemplate(PathKit.getRootClassPath() + "/template", arp);
+        getSqlTemplate(PathKitExt.getRoot1ClassPath() + "/template", arp);
         //Redis以及缓存插件
         RedisPlugin redisPlugin=new RedisPlugin();
         me.add(redisPlugin);
@@ -161,7 +162,8 @@ public class JfinalConfig extends JFinalConfig {
                         getSqlTemplate(childFile.getAbsolutePath(), arp);
                     } else {
                         if (childFile.getName().toLowerCase().endsWith(".sql")) {
-                            arp.addSqlTemplate(childFile.getAbsolutePath().replace(PathKit.getRootClassPath(), "").replace("\\", "/"));
+                            // arp.addSqlTemplate(childFile.getAbsolutePath().replace(PathKit.getRootClassPath(), "").replace("\\", "/"));
+                            arp.addSqlTemplate(childFile.getAbsolutePath().replace(PathKitExt.getRoot1ClassPath(), "").replace("\\", "/"));
                         }
                     }
                 }
